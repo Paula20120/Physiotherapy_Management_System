@@ -1,5 +1,5 @@
 Attribute VB_Name = "Module2"
-' FUNKCJA POMOCNICZA DLA UKOŒNIKÓW
+' FUNKCJA POMOCNICZA DLA UKOÅ’NIKÃ“W
 Private Function S() As String
     #If Mac Then
         S = "/"
@@ -30,10 +30,10 @@ Sub UsunPacjenta()
             pacjentFull = ws.Cells(wierszDoUsuniecia, "D").Value & " " & ws.Cells(wierszDoUsuniecia, "E").Value
             nazwaFolderu = Replace(pacjentFull, " ", "_")
             
-            ' Zapytanie o usuniêcie pacjenta z Excela
-            If MsgBox("Czy na pewno chcesz usun¹æ pacjenta: " & pacjentFull & " z listy?", vbYesNo + vbExclamation) = vbYes Then
+            ' Zapytanie o usuniÃªcie pacjenta z Excela
+            If MsgBox("Czy na pewno chcesz usunÂ¹Ã¦ pacjenta: " & pacjentFull & " z listy?", vbYesNo + vbExclamation) = vbYes Then
                 
-                ' Przygotowanie œcie¿ek folderów przy u¿yciu funkcji S()
+                ' Przygotowanie Å“cieÂ¿ek folderÃ³w przy uÂ¿yciu funkcji S()
                 sciezkaPacjenta = ThisWorkbook.Path & S & "Dokumentacja_Pacjentow" & S & nazwaFolderu
                 sciezkaWydruki = ThisWorkbook.Path & S & "Wydruki" & S & nazwaFolderu
                 
@@ -47,7 +47,7 @@ Sub UsunPacjenta()
                     If Not fRng Is Nothing Then fRng.EntireRow.Delete
                 End If
                 
-                ' 2. Porz¹dkowanie listy g³ównej
+                ' 2. PorzÂ¹dkowanie listy gÂ³Ã³wnej
                 ostatniWiersz = ws.Cells(ws.Rows.Count, "D").End(xlUp).Row
                 If wierszDoUsuniecia = ostatniWiersz Then
                     ws.Range("D" & wierszDoUsuniecia & ":E" & wierszDoUsuniecia).ClearContents
@@ -56,7 +56,7 @@ Sub UsunPacjenta()
                         Destination:=ws.Range("D" & wierszDoUsuniecia)
                 End If
                 
-                ' 3. Odœwie¿enie ramek
+                ' 3. OdÅ“wieÂ¿enie ramek
                 Call RysujRamki
                 
                 Application.ScreenUpdating = True
@@ -64,32 +64,32 @@ Sub UsunPacjenta()
                 
                 ' SEKCJA 1: USUWANIE FOLDERU DOKUMENTACJI
                 If FolderIstnieje(sciezkaPacjenta) Then
-                    If MsgBox("Pacjent usuniêty z listy. Czy chcesz równie¿ USUN¥Æ folder z plikami medycznymi?", _
+                    If MsgBox("Pacjent usuniÃªty z listy. Czy chcesz rÃ³wnieÂ¿ USUNÂ¥Ã† folder z plikami medycznymi?", _
                               vbYesNo + vbQuestion, "Usuwanie dokumentacji") = vbYes Then
                         UsunPelnyFolder sciezkaPacjenta
                     End If
                 End If
                 
-                ' SEKCJA 2: USUWANIE FOLDERU WYDRUKÓW
+                ' SEKCJA 2: USUWANIE FOLDERU WYDRUKÃ“W
                 If FolderIstnieje(sciezkaWydruki) Then
-                    If MsgBox("Znaleziono folder z wygenerowanymi PDF (Wydruki). Czy chcesz go równie¿ USUN¥Æ?", _
-                              vbYesNo + vbQuestion, "Usuwanie wydruków") = vbYes Then
+                    If MsgBox("Znaleziono folder z wygenerowanymi PDF (Wydruki). Czy chcesz go rÃ³wnieÂ¿ USUNÂ¥Ã†?", _
+                              vbYesNo + vbQuestion, "Usuwanie wydrukÃ³w") = vbYes Then
                         UsunPelnyFolder sciezkaWydruki
                     End If
                 End If
                 
-                MsgBox "Proces usuwania zakoñczony.", vbInformation
+                MsgBox "Proces usuwania zakoÃ±czony.", vbInformation
                 
             End If
         Else
-            MsgBox "Zaznaczona komórka jest pusta.", vbInformation
+            MsgBox "Zaznaczona komÃ³rka jest pusta.", vbInformation
         End If
     Else
-        MsgBox "Kliknij najpierw na Imiê lub Nazwisko w tabeli!", vbCritical
+        MsgBox "Kliknij najpierw na ImiÃª lub Nazwisko w tabeli!", vbCritical
     End If
 End Sub
 
-' UNIWERSALNE FUNKCJE DO OBS£UGI PLIKÓW
+' UNIWERSALNE FUNKCJE DO OBSÂ£UGI PLIKÃ“W
 
 Function FolderIstnieje(sciezka As String) As Boolean
     FolderIstnieje = (Dir(sciezka, vbDirectory) <> "")
@@ -98,12 +98,12 @@ End Function
 Sub UsunPelnyFolder(sciezka As String)
     On Error Resume Next
     #If Mac Then
-        ' Na Macu u¿ywam AppleScript, aby przenieœæ folder do kosza
+        ' Na Macu uÂ¿ywam AppleScript, aby przenieÅ“Ã¦ folder do kosza
         Dim script As String
         script = "tell application ""Finder"" to delete POSIX file """ & sciezka & """"
         MacScript script
     #Else
-        ' Na Windowsie u¿ywam tradycyjnego FileSystemObject
+        ' Na Windowsie uÂ¿ywam tradycyjnego FileSystemObject
         Dim fso As Object
         Set fso = CreateObject("Scripting.FileSystemObject")
         fso.DeleteFolder sciezka, True
