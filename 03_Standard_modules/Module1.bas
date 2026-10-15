@@ -1,5 +1,5 @@
 Attribute VB_Name = "Module1"
-' FUNKCJA POMOCNICZA DLA UKOŒNIKÓW
+' FUNKCJA POMOCNICZA DLA UKOÅšNIKÃ“W
 Private Function S() As String
     #If Mac Then
         S = "/"
@@ -17,18 +17,18 @@ End Function
     imie = Trim(ws.Range("J6").Value)
     nazwisko = Trim(ws.Range("J7").Value)
     
-    ' Walidacja danych wejœciowych
+    ' Walidacja danych wejÅ›ciowych
     If imie = "" Or nazwisko = "" Then
-        MsgBox "Wpisz imiê w J6 i nazwisko w J7!", vbExclamation
+        MsgBox "Wpisz imiÄ™ w J6 i nazwisko w J7!", vbExclamation
         Exit Sub
     End If
     
-    ' LOGIKA FOLDERÓW
+    ' LOGIKA FOLDERÃ“W
     sciezkaGlowna = ThisWorkbook.Path & S & "Dokumentacja_Pacjentow"
     sciezkaPacjenta = sciezkaGlowna & S & imie & "_" & nazwisko
     
     On Error Resume Next
-    ' Sprawdzenie i tworzenie folderu g³ównego
+    ' Sprawdzenie i tworzenie folderu gÅ‚Ã³wnego
     If Dir(sciezkaGlowna, vbDirectory) = "" Then
         MkDir sciezkaGlowna
     End If
@@ -39,7 +39,7 @@ End Function
     End If
     On Error GoTo 0
 
-    ' Wy³¹czamy zdarzenia (blokada Arkusza przed komunikatem Undo)
+    ' WyÅ‚Ä…czamy zdarzenia (blokada Arkusza przed komunikatem Undo)
     Application.EnableEvents = False
     
     ' Szukanie wiersza
@@ -50,13 +50,13 @@ End Function
     ws.Cells(nastepnyWiersz, "D").Value = imie
     ws.Cells(nastepnyWiersz, "E").Value = nazwisko
     
-    ' Czyszczenie pól i rysowanie ramek
+    ' Czyszczenie pÃ³l i rysowanie ramek
     ws.Range("J6:J7").ClearContents
     
-    ' Upewnienie siê, ¿e procedura RysujRamki te¿ nie ma b³êdów
+    ' Upewnienie siÄ™, Å¼e procedura RysujRamki teÅ¼ nie ma bÅ‚Ä™dÃ³w
     Call RysujRamki
     
-    ' W³¹czamy zdarzenia
+    ' WÅ‚Ä…czamy zdarzenia
     Application.EnableEvents = True
     
     MsgBox "Pacjent dodany i folder utworzony!", vbInformation
