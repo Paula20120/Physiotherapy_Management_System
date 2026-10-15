@@ -15,7 +15,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim rIndex As Long
 
-' --- FUNKCJA UNIWERSALNEGO UKOŒNIKA ---
+' --- FUNKCJA UNIWERSALNEGO UKOÅ’NIKA ---
 Public Function S() As String
     #If Mac Then
         S = "/"
@@ -32,13 +32,13 @@ End Sub
 Private Sub UserForm_Initialize()
     With cmbStatusPlatnosci
         .Clear
-        .AddItem "Op³acono"
-        .AddItem "Nieop³acono"
-        .Value = "Nieop³acono"
+        .AddItem "OpÂ³acono"
+        .AddItem "NieopÂ³acono"
+        .Value = "NieopÂ³acono"
     End With
 End Sub
 
-' 2. £ADOWANIE DANYCH PACJENTA
+' 2. Â£ADOWANIE DANYCH PACJENTA
 Public Sub LoadPatientData(PatientName As String)
     Dim ws As Worksheet: Set ws = Sheets("Baza_danych_medycznych")
     Dim foundRng As Range
@@ -61,7 +61,7 @@ Public Sub LoadPatientData(PatientName As String)
     End If
 End Sub
 
-' 3. ODŒWIE¯ANIE LISTY
+' 3. ODÅ’WIEÂ¯ANIE LISTY
 Sub RefreshVisitList(rawData As String, Optional FilterText As String = "")
     Dim v() As String, p() As String, temp As String
     Dim i As Long, j As Long
@@ -74,14 +74,14 @@ Sub RefreshVisitList(rawData As String, Optional FilterText As String = "")
     ' Rozbijamy dane
     v = Split(rawData, "||")
     
-    ' SORTOWANIE B¥BELKOWE (Wed³ug DATY, potem Numeru)
+    ' SORTOWANIE BÂ¥BELKOWE (WedÂ³ug DATY, potem Numeru)
     For i = LBound(v) To UBound(v) - 1
         For j = i + 1 To UBound(v)
             If Len(v(i)) > 5 And Len(v(j)) > 5 Then
                 Dim p1() As String: p1 = Split(v(i), "|")
                 Dim p2() As String: p2 = Split(v(j), "|")
                 
-                ' Porównanie: najpierw data (p(0)), potem numer (p(1))
+                ' PorÃ³wnanie: najpierw data (p(0)), potem numer (p(1))
                 If p1(0) > p2(0) Then
                     temp = v(i): v(i) = v(j): v(j) = temp
                 ElseIf p1(0) = p2(0) Then
@@ -93,16 +93,16 @@ Sub RefreshVisitList(rawData As String, Optional FilterText As String = "")
         Next j
     Next i
     
-    ' WYŒWIETLANIE NA LIŒCIE
+    ' WYÅ’WIETLANIE NA LIÅ’CIE
     For i = 0 To UBound(v)
         If Len(Trim(v(i))) > 5 Then
             p = Split(v(i), "|")
             d = p(0): n = p(1)
             o = IIf(UBound(p) >= 2, IIf(Trim(p(2)) = "", "Brak opisu", p(2)), "Brak opisu")
             
-            St = "Nieop³acono"
+            St = "NieopÂ³acono"
             For j = 0 To UBound(p)
-                If p(j) = "Op³acono" Or p(j) = "Nieop³acono" Then St = p(j): Exit For
+                If p(j) = "OpÂ³acono" Or p(j) = "NieopÂ³acono" Then St = p(j): Exit For
             Next j
             
             wpisListy = d & " (Nr: " & n & ") - " & o & " [" & St & "]"
@@ -114,7 +114,7 @@ Sub RefreshVisitList(rawData As String, Optional FilterText As String = "")
     Next i
 End Sub
 
-' 4. ZAPIS DANYCH OGÓLNYCH
+' 4. ZAPIS DANYCH OGÃ“LNYCH
 Private Sub btnZapisz_Click()
     Dim ws As Worksheet: Set ws = Sheets("Baza_danych_medycznych")
     Application.EnableEvents = False
@@ -123,7 +123,7 @@ Private Sub btnZapisz_Click()
     ws.Cells(rIndex, 4).Value = txtRozpoznanie.Text
     ws.Cells(rIndex, 5).Value = txtZalecenia.Text
     Application.EnableEvents = True
-    MsgBox "Dane pacjenta zosta³y zapisane!", vbInformation
+    MsgBox "Dane pacjenta zostaÂ³y zapisane!", vbInformation
 End Sub
 
 ' 5. DODAWANIE NOWEJ WIZYTY
@@ -153,7 +153,7 @@ Private Sub btnDodajWizyte_Click()
     
     ' Walidacja daty
     If Not IsDate(vDate) Then
-        MsgBox "B³êdny format daty! Wpisz np. 2026-04-23", vbCritical
+        MsgBox "BÂ³Ãªdny format daty! Wpisz np. 2026-04-23", vbCritical
         Exit Sub
     End If
     vDate = Format(CDate(vDate), "yyyy-mm-dd")
@@ -164,7 +164,7 @@ Private Sub btnDodajWizyte_Click()
     vDesc = InputBox("Opis wizyty:", "Nowa Wizyta")
     If Trim(vDesc) = "" Then vDesc = "Brak opisu"
     
-    vStatus = IIf(cmbStatusPlatnosci.Value = "", "Nieop³acono", cmbStatusPlatnosci.Value)
+    vStatus = IIf(cmbStatusPlatnosci.Value = "", "NieopÂ³acono", cmbStatusPlatnosci.Value)
     record = vDate & "|" & vNum & "|" & vDesc & "|" & vStatus
     
     Application.EnableEvents = False
@@ -176,7 +176,7 @@ Private Sub btnDodajWizyte_Click()
     Application.EnableEvents = True
     
     RefreshVisitList ws.Cells(rIndex, 6).Value, txtFiltrDaty.Text
-    cmbStatusPlatnosci.Value = "Nieop³acono"
+    cmbStatusPlatnosci.Value = "NieopÂ³acono"
 End Sub
 ' 6. AKTUALIZACJA WYBRANEJ WIZYTY
 Private Sub btnAktualizujWizyte_Click()
@@ -186,11 +186,11 @@ Private Sub btnAktualizujWizyte_Click()
     Dim wybranyTekst As String, nrDoAktualizacji As String
     
     If lstWizyty.ListIndex = -1 Then
-        MsgBox "Wybierz wizytê z listy!", vbExclamation
+        MsgBox "Wybierz wizytÃª z listy!", vbExclamation
         Exit Sub
     End If
     
-    ' Wyci¹gamy numer wizyty z zaznaczonego wiersza na liœcie
+    ' WyciÂ¹gamy numer wizyty z zaznaczonego wiersza na liÅ“cie
     wybranyTekst = lstWizyty.List(lstWizyty.ListIndex)
     nrDoAktualizacji = Mid(wybranyTekst, InStr(wybranyTekst, "Nr: ") + 4)
     nrDoAktualizacji = Left(nrDoAktualizacji, InStr(nrDoAktualizacji, ")") - 1)
@@ -201,9 +201,9 @@ Private Sub btnAktualizujWizyte_Click()
     For i = 0 To UBound(v)
         p = Split(v(i), "|")
         If p(1) = nrDoAktualizacji Then
-            nData = InputBox("Popraw datê (RRRR-MM-DD):", "Aktualizacja", p(0))
+            nData = InputBox("Popraw datÃª (RRRR-MM-DD):", "Aktualizacja", p(0))
             If nData = "" Then Exit Sub
-            If Not IsDate(nData) Then MsgBox "B³êdna data!": Exit Sub
+            If Not IsDate(nData) Then MsgBox "BÂ³Ãªdna data!": Exit Sub
             
             nNum = InputBox("Popraw numer wizyty:", "Aktualizacja", p(1))
             If nNum = "" Then Exit Sub
@@ -227,7 +227,7 @@ Private Sub btnAktualizujWizyte_Click()
     Application.EnableEvents = True
     
     RefreshVisitList pelnyString, txtFiltrDaty.Text
-    MsgBox "Wizyta zosta³a zaktualizowana!", vbInformation
+    MsgBox "Wizyta zostaÂ³a zaktualizowana!", vbInformation
 End Sub
 
 ' 7. USUWANIE WIZYTY
@@ -237,16 +237,16 @@ Private Sub btnUsunWizyte_Click()
     Dim wybranyTekst As String, nrDoUsuniecia As String
     
     If lstWizyty.ListIndex = -1 Then
-        MsgBox "Wybierz wizytê do usuniêcia!", vbExclamation
+        MsgBox "Wybierz wizytÃª do usuniÃªcia!", vbExclamation
         Exit Sub
     End If
     
-    ' Pobranie numeru z tekstu na liœcie
+    ' Pobranie numeru z tekstu na liÅ“cie
     wybranyTekst = lstWizyty.List(lstWizyty.ListIndex)
     nrDoUsuniecia = Mid(wybranyTekst, InStr(wybranyTekst, "Nr: ") + 4)
     nrDoUsuniecia = Left(nrDoUsuniecia, InStr(nrDoUsuniecia, ")") - 1)
     
-    If MsgBox("Czy na pewno chcesz usun¹æ wizytê nr " & nrDoUsuniecia & "?", vbYesNo + vbQuestion) = vbNo Then Exit Sub
+    If MsgBox("Czy na pewno chcesz usunÂ¹Ã¦ wizytÃª nr " & nrDoUsuniecia & "?", vbYesNo + vbQuestion) = vbNo Then Exit Sub
     
     v = Split(ws.Cells(rIndex, 6).Value, "||")
     nowyString = ""
@@ -267,7 +267,7 @@ Private Sub btnUsunWizyte_Click()
     RefreshVisitList nowyString, txtFiltrDaty.Text
 End Sub
 
-' 8. OTWIERANIE PLIKÓW
+' 8. OTWIERANIE PLIKÃ“W
 Private Sub btnOtworzPliki_Click()
     Dim sciezka As String, nazwa As String
     nazwa = Cells(ActiveCell.Row, "D").Value & "_" & Cells(ActiveCell.Row, "E").Value
@@ -280,7 +280,7 @@ Private Sub btnOtworzPliki_Click()
             Shell "explorer.exe " & """" & sciezka & """", vbNormalFocus
         #End If
     Else
-        If MsgBox("Utworzyæ folder?", vbYesNo + vbQuestion) = vbYes Then
+        If MsgBox("UtworzyÃ¦ folder?", vbYesNo + vbQuestion) = vbYes Then
             Dim glowny As String: glowny = ThisWorkbook.Path & S & "Dokumentacja_Pacjentow"
             If Dir(glowny, vbDirectory) = "" Then MkDir glowny
             MkDir sciezka
@@ -340,7 +340,7 @@ Private Sub btnDrukujWizyte_Click()
 
     rP = ActiveCell.Row
     pacjent = wsP.Cells(rP, "D").Value & " " & wsP.Cells(rP, "E").Value
-    wybraneNumery = InputBox("Wpisz numery wizyt po przecinku (np. 1, 4, 7):", "Wybór wizyt")
+    wybraneNumery = InputBox("Wpisz numery wizyt po przecinku (np. 1, 4, 7):", "WybÃ³r wizyt")
     If wybraneNumery = "" Then Exit Sub
     
     numeryTab = Split(wybraneNumery, ",")
@@ -381,7 +381,7 @@ End Sub
 ' 11. POMOCNICZE
 Sub ClearFields()
     txtWywiad.Text = "": txtBadanie.Text = "": txtRozpoznanie.Text = "": txtZalecenia.Text = ""
-    txtFiltrDaty.Text = "": lstWizyty.Clear: cmbStatusPlatnosci.Value = "Nieop³acono"
+    txtFiltrDaty.Text = "": lstWizyty.Clear: cmbStatusPlatnosci.Value = "NieopÂ³acono"
 End Sub
 
 Private Sub lstWizyty_Click()
@@ -390,9 +390,9 @@ Private Sub lstWizyty_Click()
     If lstWizyty.ListIndex <> -1 Then
         v = Split(ws.Cells(rIndex, 6).Value, "||")
         p = Split(v(lstWizyty.ListIndex), "|")
-        cmbStatusPlatnosci.Value = "Nieop³acono"
+        cmbStatusPlatnosci.Value = "NieopÂ³acono"
         For i = 0 To UBound(p)
-            If p(i) = "Op³acono" Or p(i) = "Nieop³acono" Then cmbStatusPlatnosci.Value = p(i): Exit For
+            If p(i) = "OpÂ³acono" Or p(i) = "NieopÂ³acono" Then cmbStatusPlatnosci.Value = p(i): Exit For
         Next i
     End If
 End Sub
