@@ -10,14 +10,14 @@ Attribute VB_Exposed = True
 Private Sub Worksheet_BeforeDoubleClick(ByVal Target As Range, Cancel As Boolean)
     Dim pacjentFull As String
     
-    ' 1. Reaguje tylko na kolumny D lub E od wiersza 7 w dó³
+    ' 1. Reaguje tylko na kolumny D lub E od wiersza 7 w dÃ³Â³
     If Not Intersect(Target, Range("D7:E1000")) Is Nothing Then
         If Target.Value = "" Then Exit Sub
         
-        ' 2. Wy³¹czamy zdarzenia
+        ' 2. WyÂ³Â¹czamy zdarzenia
         Application.EnableEvents = False
         
-        Cancel = True ' Blokuje mruganie kursora w komórce
+        Cancel = True ' Blokuje mruganie kursora w komÃ³rce
         
         ' Pobieranie danych
         pacjentFull = Cells(Target.Row, "D").Value & " " & Cells(Target.Row, "E").Value
@@ -28,27 +28,27 @@ Private Sub Worksheet_BeforeDoubleClick(ByVal Target As Range, Cancel As Boolean
             .Show
         End With
         
-        ' 4. W³¹czamy zdarzenia z powrotem po zamkniêciu formularza
+        ' 4. WÂ³Â¹czamy zdarzenia z powrotem po zamkniÃªciu formularza
         Application.EnableEvents = True
     End If
 End Sub
 
-' BLOKADA RÊCZNEJ EDYCJI
+' BLOKADA RÃŠCZNEJ EDYCJI
 Private Sub Worksheet_Change(ByVal Target As Range)
-    ' Jeœli zmiana nast¹pi³a w kolumnach D lub E
+    ' JeÅ“li zmiana nastÂ¹piÂ³a w kolumnach D lub E
     If Not Intersect(Target, Range("D7:E1000")) Is Nothing Then
         
-        ' Sprawdzamy, czy makra s¹ wolne" (EnableEvents = True)
-        ' Jeœli dwuklik lub makro przycisku dzia³aj¹, to poni¿szy kod siê nie odpali
+        ' Sprawdzamy, czy makra sÂ¹ wolne" (EnableEvents = True)
+        ' JeÅ“li dwuklik lub makro przycisku dziaÂ³ajÂ¹, to poniÂ¿szy kod siÃª nie odpali
         If Application.EnableEvents = True Then
             
             On Error Resume Next
-            Application.EnableEvents = False ' Blokada pêtli
+            Application.EnableEvents = False ' Blokada pÃªtli
             
-            Application.Undo ' Cofa rêczne wpisanie/skasowanie
+            Application.Undo ' Cofa rÃªczne wpisanie/skasowanie
             
-            MsgBox "Nie mo¿esz edytowaæ tabeli rêcznie!" & vbCrLf & _
-                   "U¿yj przycisków 'Dodaj dane' lub 'Usuñ dane'.", vbCritical, "Blokada edycji"
+            MsgBox "Nie moÂ¿esz edytowaÃ¦ tabeli rÃªcznie!" & vbCrLf & _
+                   "UÂ¿yj przyciskÃ³w 'Dodaj dane' lub 'UsuÃ± dane'.", vbCritical, "Blokada edycji"
             
             Application.EnableEvents = True
         End If
