@@ -26,3 +26,15 @@ An Excel VBA application developed to support administrative tasks in a physioth
 - Automatically populate templates with patient information and selected visit details.
 - Include the practice logo and contact information in generated documents.
 
+## Technologies
+
+- **Microsoft Excel** - data storage, worksheets, and document templates
+- **VBA** - application logic, automation, and data management
+- **Excel UserForms** - graphical user interface for patient and visit management
+
+## Repository Structure
+
+- `01_Worksheet_code/` - code associated with worksheets and the workbook
+- `02_UserForm/` - user interface forms
+- `03_Standard_modules/` - standard VBA modules
+- `04_Documentation/` - screenshots and project documentation
