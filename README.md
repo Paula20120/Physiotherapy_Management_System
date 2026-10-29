@@ -1,4 +1,4 @@
-# Physiotherapy_Management_System
+# Physiotherapy management system
 
 Excel VBA application for physiotherapy practice management
 
