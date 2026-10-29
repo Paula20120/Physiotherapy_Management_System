@@ -39,21 +39,21 @@ An Excel VBA application developed to support administrative tasks in a physioth
 - `03_Standard_modules/` - standard VBA modules
 - `04_Tool_documentation/` - screenshots and project documentation
 
-## Application Screenshots
+## Application screenshots
 
-### Patient Database
+### Patient database
 
 <p align="center">
   <img src="04_Tool_documentation/Patient_database.png" alt="Patient Database" width="700">
 </p>
 
-### Patient Card
+### Patient card
 
 <p align="center">
   <img src="04_Tool_documentation/Pacient_card.png" alt="Patient Card" width="700">
 </p>
 
-### Visit Management
+### Visit management
 
 <p align="center">
   <img src="04_Tool_documentation/Visit_form_1.png" alt="Visit Form 1" width="700">
@@ -67,15 +67,15 @@ An Excel VBA application developed to support administrative tasks in a physioth
   <img src="04_Tool_documentation/VIsit_form_3.png" alt="Visit Form 3" width="700">
 </p>
 
-### Printable Documents
+### Printable documents
 
-#### Patient Summary
+#### Patient summary
 
 <p align="center">
   <img src="04_Tool_documentation/Print_patient_summary.png" alt="Patient Summary" width="700">
 </p>
 
-#### Visit Documentation
+#### Visit documentation
 
 <p align="center">
   <img src="04_Tool_documentation/Print_visit_template_1.png" alt="Visit Template - Page 1" width="700">
