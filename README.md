@@ -8,20 +8,20 @@ An Excel VBA application developed to support administrative tasks in a physioth
 
 ## Key Features
 
-### Patient Management
+### Patient management
 - Add, edit, and delete patient records stored in a structured database.
 - Automatically create an individual folder for each patient when a new record is added.
 
-### Medical Documentation
+### Medical documentation
 - Maintain individual patient records, including medical history, examination findings, diagnosis, and recommendations.
 - Store and access medical documentation, X-rays, images, PDFs, Word documents, and other files directly from the application.
 
-### Visit Management
+### Visit management
 - Add, edit, and delete individual patient visits.
 - Automatically assign visit dates and sequential visit numbers.
 - Record visit descriptions and track payment status as paid or unpaid.
 
-### Automated Document Generation
+### Automated document generation
 - Generate printable patient summaries and individual visit records using dedicated Excel templates.
 - Automatically populate templates with patient information and selected visit details.
 - Include the practice logo and contact information in generated documents.
@@ -32,24 +32,24 @@ An Excel VBA application developed to support administrative tasks in a physioth
 - **VBA** - application logic, automation, and data management
 - **Excel UserForms** - graphical user interface for patient and visit management
 
-## Repository Structure
+## Repository structure
 
 - `01_Worksheet_code/` - code associated with worksheets and the workbook
 - `02_UserForm/` - user interface forms
 - `03_Standard_modules/` - standard VBA modules
 - `04_Tool_documentation/` - screenshots and project documentation
 
-## Application Screenshots
+## Application screenshots
 
 ### Patient Database
 
 ![Patient Database](04_Tool_documentation/Patient_database.png)
 
-### Patient Card
+### Patient card
 
 ![Patient Card](04_Tool_documentation/Pacient_card.png)
 
-### Visit Management
+### Visit management
 
 ![Visit Form 1](04_Tool_documentation/Visit_form_1.png)
 
@@ -57,13 +57,13 @@ An Excel VBA application developed to support administrative tasks in a physioth
 
 ![Visit Form 3](04_Tool_documentation/VIsit_form_3.png)
 
-### Printable Documents
+### Printable documents
 
-#### Patient Summary
+#### Patient summary
 
 ![Patient Summary](04_Tool_documentation/Print_patient_summary.png)
 
-#### Visit Documentation
+#### Visit documentation
 
 ![Visit Template - Page 1](04_Tool_documentation/Print_visit_template_1.png)
 
