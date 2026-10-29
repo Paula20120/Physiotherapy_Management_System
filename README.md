@@ -6,7 +6,7 @@ Excel VBA application for physiotherapy practice management
 
 An Excel VBA application developed to support administrative tasks in a physiotherapy practice. The application uses custom forms and automated processes to help manage patient information and related documentation.
 
-## Key Features
+## Key features
 
 ### Patient management
 - Add, edit, and delete patient records stored in a structured database.
@@ -39,32 +39,48 @@ An Excel VBA application developed to support administrative tasks in a physioth
 - `03_Standard_modules/` - standard VBA modules
 - `04_Tool_documentation/` - screenshots and project documentation
 
-## Application screenshots
+## Application Screenshots
 
 ### Patient Database
 
-![Patient Database](04_Tool_documentation/Patient_database.png)
+<p align="center">
+  <img src="04_Tool_documentation/Patient_database.png" alt="Patient Database" width="700">
+</p>
 
-### Patient card
+### Patient Card
 
-![Patient Card](04_Tool_documentation/Pacient_card.png)
+<p align="center">
+  <img src="04_Tool_documentation/Pacient_card.png" alt="Patient Card" width="700">
+</p>
 
-### Visit management
+### Visit Management
 
-![Visit Form 1](04_Tool_documentation/Visit_form_1.png)
+<p align="center">
+  <img src="04_Tool_documentation/Visit_form_1.png" alt="Visit Form 1" width="700">
+</p>
 
-![Visit Form 2](04_Tool_documentation/Visit_form_2.png)
+<p align="center">
+  <img src="04_Tool_documentation/Visit_form_2.png" alt="Visit Form 2" width="700">
+</p>
 
-![Visit Form 3](04_Tool_documentation/VIsit_form_3.png)
+<p align="center">
+  <img src="04_Tool_documentation/VIsit_form_3.png" alt="Visit Form 3" width="700">
+</p>
 
-### Printable documents
+### Printable Documents
 
-#### Patient summary
+#### Patient Summary
 
-![Patient Summary](04_Tool_documentation/Print_patient_summary.png)
+<p align="center">
+  <img src="04_Tool_documentation/Print_patient_summary.png" alt="Patient Summary" width="700">
+</p>
 
-#### Visit documentation
+#### Visit Documentation
 
-![Visit Template - Page 1](04_Tool_documentation/Print_visit_template_1.png)
+<p align="center">
+  <img src="04_Tool_documentation/Print_visit_template_1.png" alt="Visit Template - Page 1" width="700">
+</p>
 
-![Visit Template - Page 2](04_Tool_documentation/Print_visit_template_2.png)
+<p align="center">
+  <img src="04_Tool_documentation/Print_visit_template_2.png" alt="Visit Template - Page 2" width="700">
+</p>
