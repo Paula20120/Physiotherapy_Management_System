@@ -43,17 +43,23 @@ An Excel VBA application developed to support administrative tasks in a physioth
 
 ### Patient database
 
+Central database for managing patient records, providing an overview of registered patients.
+
 <p align="center">
   <img src="04_Tool_documentation/Patient_database.png" alt="Patient Database" width="700">
 </p>
 
 ### Patient card
 
+Individual patient record containing medical history, examination findings, diagnosis, and general recommendations.
+
 <p align="center">
   <img src="04_Tool_documentation/Pacient_card.png" alt="Patient Card" width="700">
 </p>
 
 ### Visit management
+
+Forms for creating and managing patient visits, including visit details and payment status.
 
 <p align="center">
   <img src="04_Tool_documentation/Visit_form_1.png" alt="Visit Form 1" width="700">
@@ -69,6 +75,8 @@ An Excel VBA application developed to support administrative tasks in a physioth
 
 ### Printable documents
 
+Printable patient summary automatically populated with patient information and the practice's contact details.
+
 #### Patient summary
 
 <p align="center">
@@ -76,6 +84,8 @@ An Excel VBA application developed to support administrative tasks in a physioth
 </p>
 
 #### Visit documentation
+
+Printable visit documentation generated from the information recorded in the application.
 
 <p align="center">
   <img src="04_Tool_documentation/Print_visit_template_1.png" alt="Visit Template - Page 1" width="700">
