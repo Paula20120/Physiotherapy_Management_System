@@ -37,4 +37,34 @@ An Excel VBA application developed to support administrative tasks in a physioth
 - `01_Worksheet_code/` - code associated with worksheets and the workbook
 - `02_UserForm/` - user interface forms
 - `03_Standard_modules/` - standard VBA modules
-- `04_Documentation/` - screenshots and project documentation
+- `04_Tool_documentation/` - screenshots and project documentation
+
+## Application Screenshots
+
+### Patient Database
+
+![Patient Database](04_Tool_documentation/Patient_database.png)
+
+### Patient Card
+
+![Patient Card](04_Tool_documentation/Pacient_card.png)
+
+### Visit Management
+
+![Visit Form 1](04_Tool_documentation/Visit_form_1.png)
+
+![Visit Form 2](04_Tool_documentation/Visit_form_2.png)
+
+![Visit Form 3](04_Tool_documentation/VIsit_form_3.png)
+
+### Printable Documents
+
+#### Patient Summary
+
+![Patient Summary](04_Tool_documentation/Print_patient_summary.png)
+
+#### Visit Documentation
+
+![Visit Template - Page 1](04_Tool_documentation/Print_visit_template_1.png)
+
+![Visit Template - Page 2](04_Tool_documentation/Print_visit_template_2.png)
